@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reykjavik Cups</title>
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!--No comments, all relevant information can be found in the README.md file.-->
+
+<body>
+    <div class="hero">
+        <div class="navbar">
+            <div class="container-navbar">
+                <a class="logo" href="index.html">Reykjavik Cups</a>
+                <img id="mobile-cta" class="mobile-menu" src="images/menu.svg" alt="Open navigation">
+                
+                <nav>
+                    <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close navigation">
+                    <ul class="primary-nav">
+                        <li><a href="#">Our story</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li class="shop-cta"><a href="#">Shop</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <section class="hero-content">
+            <div class="container-hero">
+                <h1>We make our own cups</h1>
+                <h2>from recycled coffee grounds</h2>
+            </div>
+        </section>
+    </div>
+
+    <section class="contact">
+            <div class="contact-left">
+                <h4>Hours</h4>
+                    <p>Weekdays: 8:00 - 20:00</p>
+                    <p>Weekends: 10:00 - 17:00</p>
+                    <p>Weekends: 10:00 - 17:00</p>
+                    <a href="https://www.facebook.com/attila.balatoni.5" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/attilabalatoni/" target="_blank" class="fa fa-instagram"></a>
+            </div>
+
+            <div class="contact-middle">
+                <h4>Address</h4>
+                    <p>Kaffigata 79</p>
+                    <p>Reykjavik 101</p>
+                    <p>Iceland</p>
+            </div>
+
+            <div class="contact-right">
+                <h4>Find us</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1740.1119755743184!2d-21.927242084240877!3d64.1422618232224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48d675ade4c7f11b%3A0x7671784c7f82d894!2zVMOma25pc2vDs2xpbm4sIGHDsGFsYnlnZ2luZw!5e0!3m2!1sen!2sis!4v1629551232961!5m2!1sen!2sis" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>   
+            </div>
+    </section>
+
+    <footer>© 2021 Reykjavik Cups ehf. kt. 123456-7890 Vsk. númer 12345.<span>Terms & Conditions</span></footer>
+
+<script>
+        const mobileBtn = document.getElementById('mobile-cta')
+            nav = document.querySelector('nav')
+            mobileBtnExit = document.getElementById('mobile-exit');
+
+        mobileBtn.addEventListener('click', () => {
+            nav.classList.add('menu-btn');
+        })
+
+        mobileBtnExit.addEventListener('click', () => {
+            nav.classList.remove('menu-btn');
+        })
+</script>
+
+</body>
+</html>

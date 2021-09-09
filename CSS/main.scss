@@ -1,0 +1,294 @@
+/**TABLE OF CONTENTS
+(press ctrl+f and search the section you are looking for in your code editor)
+1. Sass @import
+2. Sass @mixin
+3. Sass Nesting
+4. Sass @extend
+5. Sass Variables, see example in _colors.scss
+6. Sass Functions, see example in _colors.scss
+**/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap");
+
+/* =========================
+1. Sass @import
+========================= */
+@import "_colors";
+
+/* =========================
+2. Sass @mixin
+========================= */
+@mixin hover-bold {
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.hero {
+  height: 100vh;
+  background: url(../images/mike-kenneally-tNALoIZhqVM-unsplash.jpg)
+    center/cover;
+  margin: 0;
+}
+
+nav {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  width: 40%;
+  right: 0;
+  top: 0;
+  background: color(dark-bg);
+  height: 100vh;
+  padding: 1em;
+}
+
+ul.primary-nav {
+  margin-top: 5em;
+}
+
+/* =========================
+3. Sass Nesting .logo, .container-navbar, .mobile-menu selectors are nested in the .navbar selector.
+========================= */
+.navbar {
+  padding: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+
+  .logo {
+    text-decoration: none;
+    font-family: Philosopher;
+    font-style: normal;
+    font-size: 2em;
+    color: color(light-text);
+  }
+
+  .container-navbar {
+    display: flex;
+    place-content: space-between;
+  }
+
+  .mobile-menu {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-top: 0.3em;
+  }
+}
+
+nav.menu-btn {
+  display: block;
+}
+
+.mobile-menu-exit {
+  float: right;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+/* =========================
+3. Sass Nesting .a selector is nested in li selector.
+========================= */
+li {
+  a {
+    color: color(light-text);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em;
+    font-size: 1.3em;
+    text-align: right;
+    @include hover-bold;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  position: absolute;
+  bottom: 50vh;
+  left: 40vw;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4vw;
+  color: color(light-text);
+}
+
+h2 {
+  position: absolute;
+  bottom: 45vh;
+  left: 50vw;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5vw;
+  color: color(light-text);
+}
+
+/* =========================
+3. Sass Nesting 
+========================= */
+.contact {
+  display: flex;
+  justify-content: space-around;
+  background-color: color(light-bg);
+  font-family: "Poppins";
+  font-style: normal;
+  padding: 1em;
+
+  .contact-left {
+    .fa-facebook {
+      padding: 20px;
+      font-size: 30px;
+      width: 30px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+      background: color(facebook);
+      color: color(light-text);
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    /* =========================
+    4. Sass @extend
+    ========================= */
+    .fa-instagram {
+      @extend .fa-facebook;
+      background: color(instagram);
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+/* =========================
+3. Sass Nesting 
+========================= */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: color(light-bg);
+
+  span {
+    color: color(terms);
+    cursor: pointer;
+  }
+}
+
+iframe {
+  height: 170px;
+  width: 250px;
+  resize: both;
+}
+
+.instagram {
+  width: 8vw;
+  height: 8vh;
+}
+
+.facebook {
+  width: 8vw;
+  height: 8vh;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-menu,
+  .mobile-menu-exit {
+    display: none;
+  }
+
+  .navbar .container {
+    display: grid;
+  }
+
+  .navbar nav {
+    display: flex;
+  }
+
+  .navbar .container-navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .navbar nav {
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    position: unset;
+    height: auto;
+    width: 100%;
+    padding: 1em;
+    padding-right: 2em;
+
+    ul {
+      display: flex;
+    }
+
+    a {
+      color: color(light-text);
+      font-size: 1.3em;
+      padding: 0.1em 1em;
+    }
+
+    ul.primary-nav {
+      margin: 0;
+      margin-top: -0.5em;
+    }
+
+    li.shop-cta a {
+      border: 2px solid;
+      border-radius: 5em;
+      margin-top: -0.2em;
+
+      &:hover {
+        background: color(light-text);
+        color: color(dark-bg);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 645px) {
+  .contact {
+    display: block;
+    text-align: center;
+  }
+
+  h1 {
+    position: absolute;
+    bottom: 60vh;
+    left: 15vw;
+    right: 10vw;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 6vw;
+    color: color(light-text);
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 57vh;
+    left: 20vw;
+    right: 10vw;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4vw;
+    color: color(light-text);
+  }
+}
